@@ -5,7 +5,7 @@ use warnings;
 use Carp;
 
 
-our $VERSION = q(0.0.1);
+our $VERSION = q(0.0.2);
 
 
 sub import {
@@ -35,7 +35,6 @@ sub load {
     use $package;
 USE
 
-  # Two Evals there must be a better way
   eval $code;
   $obj = $package->new( @args ); 
 
@@ -79,7 +78,7 @@ It assumes that 'new' method is already defined in the loaded class, which is wh
 croaks if theres any error while loading or instantiating.
 
 
-=head2 C<< $object = load $class, @args >>
+=head2 C<< load $class, @args >>
 
 This is the only function / method defined. It loads the package / module, calls "new" on the class with arguments you pass, and returns the instantiated object.
 
